@@ -3,6 +3,7 @@ package org.nursery.common.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.nursery.common.enums.ItemStatusEn;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
@@ -15,7 +16,7 @@ import java.util.UUID;
 @Setter
 @Entity
 @Table(name = "item")
-public class NurseryItemEntity {
+public class ItemEntity {
     @Id
     @GeneratedValue
     @UuidGenerator
@@ -37,6 +38,10 @@ public class NurseryItemEntity {
 
     @Column(name = "original_price", nullable = false)
     private BigDecimal originalPrice;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private ItemStatusEn status;
 
     @Column(nullable = false)
     private Integer diameter;

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.nursery.common.enums.ItemStatusEn;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -14,20 +15,19 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class NurseryItemDto {
+public class ItemDto {
     private UUID id;
     private String itemNo;
     private UUID familyId;
     private ItemFamilyDto family;
     private String description;
     private BigDecimal originalPrice;
-    private BigDecimal effectivePrice;
-    private DiscountDto activeDiscount;
+    private BigDecimal salePrice;
+    private ItemStatusEn status;
     private Integer diameter;
     private Integer availableSequence;
     private String source;
     private Integer sourceRow;
-    private Integer quantityInStock;
     private MainImageDto mainImage;
     private List<ItemImageDto> images;
     private Instant createdAt;
