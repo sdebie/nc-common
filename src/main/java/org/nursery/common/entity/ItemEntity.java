@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.nursery.common.enums.ItemStatusEn;
+import org.nursery.common.enums.ItemTypeEn;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
@@ -40,8 +41,12 @@ public class ItemEntity {
     private BigDecimal originalPrice;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status")
-    private ItemStatusEn status;
+    @Column(name = "item_type", nullable = false)
+    private ItemTypeEn itemType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "item_status", nullable = false)
+    private ItemStatusEn itemStatus;
 
     @Column(nullable = false)
     private Integer diameter;

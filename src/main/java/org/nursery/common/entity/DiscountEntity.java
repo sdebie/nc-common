@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
+import org.nursery.common.enums.ImportStatusEn;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -40,6 +41,16 @@ public class DiscountEntity {
 
     @Column(name = "is_active", nullable = false)
     private Boolean isActive;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "import_status", nullable = false, length = 50)
+    private ImportStatusEn importStatus = ImportStatusEn.ACTIVE;
+
+    @Column(name = "file_source")
+    private String fileSource;
+
+    @Column(name = "imported_at")
+    private Instant importedAt;
 
     @OneToMany(mappedBy = "discount", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<DiscountItemEntity> items;

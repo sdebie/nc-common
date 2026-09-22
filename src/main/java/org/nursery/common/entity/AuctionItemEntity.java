@@ -14,8 +14,8 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "invoice_item")
-public class InvoiceItemEntity {
+@Table(name = "auction_item")
+public class AuctionItemEntity {
     @Id
     @GeneratedValue
     @UuidGenerator
@@ -23,27 +23,24 @@ public class InvoiceItemEntity {
     private UUID id;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "invoice_id", nullable = false)
-    private InvoiceEntity invoice;
+    @JoinColumn(name = "auction_id", nullable = false)
+    private AuctionEntity auction;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "nursery_item_id", nullable = false)
+    @JoinColumn(name = "item_id", nullable = false)
     private NurseryItemEntity nurseryItem;
 
-    @Column(name = "quantity", nullable = false)
-    private Integer quantity;
+    @Column(name = "starting_price", nullable = false)
+    private BigDecimal startingPrice;
 
-    @Column(name = "unit_price", nullable = false)
-    private BigDecimal unitPrice;
+    @Column(name = "current_bid")
+    private BigDecimal currentBid;
 
-    @Column(name = "total_price", nullable = false)
-    private BigDecimal totalPrice;
+    @Column(name = "estimated_price")
+    private BigDecimal estimatedPrice;
 
-    @Column(name = "discount_percentage")
-    private BigDecimal discountPercentage;
-
-    @Column(name = "discounted_price")
-    private BigDecimal discountedPrice;
+    @Column(name = "reserve_price")
+    private BigDecimal reservePrice;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

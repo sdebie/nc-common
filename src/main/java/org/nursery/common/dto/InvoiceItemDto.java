@@ -21,6 +21,8 @@ public class InvoiceItemDto {
     private Integer quantity;
     private BigDecimal unitPrice;
     private BigDecimal totalPrice;
+    private BigDecimal discountPercentage;
+    private BigDecimal discountedPrice;
     private Instant createdAt;
     private Instant updatedAt;
 }

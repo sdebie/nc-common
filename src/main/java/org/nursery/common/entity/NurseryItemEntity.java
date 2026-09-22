@@ -6,6 +6,8 @@ import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.annotations.UuidGenerator;
+import org.nursery.common.enums.ItemTypeEn;
+import org.nursery.common.enums.ItemStatusEn;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -52,6 +54,14 @@ public class NurseryItemEntity {
 
     @Column(name = "quantity_in_stock", nullable = false)
     private Integer quantityInStock;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "item_type", nullable = false)
+    private ItemTypeEn itemType;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "item_status", nullable = false)
+    private ItemStatusEn itemStatus;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

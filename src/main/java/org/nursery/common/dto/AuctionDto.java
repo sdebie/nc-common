@@ -5,22 +5,21 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiscountItemDto {
+@Builder
+public class AuctionDto {
     private UUID id;
-    private UUID discountId;
-    private UUID nurseryItemId;
-    private String nurseryItemNo;
-    private String familyName;
-    private Integer diameter;
-    private BigDecimal itemPrice;
+    private String auctionName;
+    private String description;
+    private Instant auctionDate;
+    private String status;
+    private List<AuctionItemDto> items;
     private Instant createdAt;
     private Instant updatedAt;
 }

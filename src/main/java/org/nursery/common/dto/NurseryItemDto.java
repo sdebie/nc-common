@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.nursery.common.enums.ItemTypeEn;
+import org.nursery.common.enums.ItemStatusEn;
 
 import java.math.BigDecimal;
 import java.time.Instant;
@@ -28,6 +30,8 @@ public class NurseryItemDto {
     private String source;
     private Integer sourceRow;
     private Integer quantityInStock;
+    private ItemTypeEn itemType;
+    private ItemStatusEn itemStatus;
     private MainImageDto mainImage;
     private List<ItemImageDto> images;
     private Instant createdAt;

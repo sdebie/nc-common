@@ -10,17 +10,18 @@ import java.time.Instant;
 import java.util.UUID;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiscountItemDto {
+@Builder
+public class AuctionItemDto {
     private UUID id;
-    private UUID discountId;
+    private UUID auctionId;
     private UUID nurseryItemId;
-    private String nurseryItemNo;
-    private String familyName;
-    private Integer diameter;
-    private BigDecimal itemPrice;
+    private NurseryItemDto nurseryItem;
+    private BigDecimal startingPrice;
+    private BigDecimal currentBid;
+    private BigDecimal estimatedPrice;
+    private BigDecimal reservePrice;
     private Instant createdAt;
     private Instant updatedAt;
 }
