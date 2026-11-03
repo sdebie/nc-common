@@ -26,21 +26,42 @@ public class AuctionItemEntity {
     @JoinColumn(name = "auction_id", nullable = false)
     private AuctionEntity auction;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "item_id", nullable = false)
-    private NurseryItemEntity nurseryItem;
+    // Item details stored directly (decoupled from item table)
+    @Column(name = "item_no", length = 50)
+    private String itemNo;
 
+    @Column(name = "item_description", length = 1000)
+    private String itemDescription;
+
+    @Column(name = "item_diameter")
+    private BigDecimal itemDiameter;
+
+    @Column(name = "item_height")
+    private BigDecimal itemHeight;
+
+    @Column(name = "item_original_price")
+    private BigDecimal itemOriginalPrice;
+
+    // Auction-specific pricing
     @Column(name = "starting_price", nullable = false)
     private BigDecimal startingPrice;
 
-    @Column(name = "current_bid")
-    private BigDecimal currentBid;
+    @Column(name = "sold_price")
+    private BigDecimal soldPrice;
 
     @Column(name = "estimated_price")
     private BigDecimal estimatedPrice;
 
     @Column(name = "reserve_price")
     private BigDecimal reservePrice;
+
+    @Column(columnDefinition = "TEXT")
+    private String note;
+
+    // Winning bidder - tracks who won/bought this lot
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "winning_bidder_id")
+    private AuctionParticipantEntity winningBidder;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

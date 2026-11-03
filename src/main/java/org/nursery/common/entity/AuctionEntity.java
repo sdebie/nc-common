@@ -32,6 +32,10 @@ public class AuctionEntity {
     @Column(name = "auction_date", nullable = false)
     private Instant auctionDate;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status", nullable = false)
+    private AuctionStatusEn status;
+
     @OneToMany(mappedBy = "auction", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<AuctionItemEntity> items;
 

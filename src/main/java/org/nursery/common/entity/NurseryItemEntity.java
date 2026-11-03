@@ -43,6 +43,12 @@ public class NurseryItemEntity {
     @Column(nullable = false)
     private Integer diameter;
 
+    @Column
+    private BigDecimal height;
+
+    @Column(columnDefinition = "TEXT")
+    private String note;
+
     @Column(name = "available_sequence")
     private Integer availableSequence;
 

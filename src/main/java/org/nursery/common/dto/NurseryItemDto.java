@@ -26,6 +26,8 @@ public class NurseryItemDto {
     private BigDecimal effectivePrice;
     private DiscountDto activeDiscount;
     private Integer diameter;
+    private BigDecimal height;
+    private String note;
     private Integer availableSequence;
     private String source;
     private Integer sourceRow;

@@ -25,8 +25,17 @@ public class CreateAuctionRequest {
     @Input
     @Data
     public static class AuctionItemRequest {
-        @Name("nurseryItemId")
-        private String nurseryItemId;
+        @Name("itemNo")
+        private String itemNo;
+
+        @Name("itemDescription")
+        private String itemDescription;
+
+        @Name("itemDiameter")
+        private Double itemDiameter;
+
+        @Name("itemHeight")
+        private Double itemHeight;
 
         @Name("startingPrice")
         private Double startingPrice;
@@ -36,5 +45,8 @@ public class CreateAuctionRequest {
 
         @Name("reservePrice")
         private Double reservePrice;
+
+        @Name("note")
+        private String note;
     }
 }
